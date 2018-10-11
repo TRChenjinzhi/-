@@ -1,0 +1,174 @@
+//
+//  PrefixHeader.pch
+//  FenRun
+//
+//  Created by chenjinzhi on 2018/9/26.
+//  Copyright © 2018 chenjinzhi. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import <QMUIKit.h>
+
+typedef enum : NSInteger {
+    MachineStatusNotOut = 0,    //未出库
+    MachineStatusOut,           //已出库
+    MachineStatusTogether,      //已绑定
+    MachineStatusActivity,      //已激活
+    MachineStatusGiveMmoney,    //已返现
+    MachineStatusNotGiveMmoney, //不返现
+    MachineStatusBroken,        //已作废
+    MachineStatusNotTogathering //解绑中
+} MachineStatusType;
+
+typedef enum : NSInteger {
+    CameraMine = 0,     //相机
+    CameraPhotos        //相册
+} CameraType;
+
+
+#import <Masonry.h>
+#import <SDCycleScrollView.h>
+#import <AFNetworking.h>
+#import <AxcAE_TabBar.h>
+//#import "LMJScrollTextView2.h"
+#import <YYKit.h>
+#import <MJRefresh.h>
+#import <MessageUI/MessageUI.h>
+#import "CZHDatePickerView.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MJExtension.h>
+#import "LBXScanNative.h"
+#import "LBXZBarWrapper.h"
+#import "ZXingWrapper.h"
+#import "LBXScanView.h"
+#import <WebKit/WebKit.h>
+
+#import "LabelHelper.h"
+#import "LoginHelper.h"
+#import "LoginRule.h"
+#import "AppConfig.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageManager.h"
+#import "SDWebImageDownloader.h"
+#import "UIImage+GIF.h"
+#import "NSData+ImageContentType.h"
+#import "NaviView.h"
+#import "TimeHelper.h"
+#import "IncomeExcellView.h"
+#import "DeviceTools.h"
+#import "MyView.h"
+#import "erWeiMa_Helper.h"
+#import "ScreenHelper.h"
+#import "CameraHelper.h"
+#import "AddressChoserHelper.h"
+#import "InternetHelper.h"
+#import "MyKeychain.h"
+#import "Color-Image-Helper.h"
+//#import "ShareHelper.h"
+#import "MyWindow.h"
+#import "MyEmptyView.h"
+#import "IncomeMonthChoseView.h"
+#import "MyBarCodeHelper.h"
+#import "MachineStatusHelper.h"
+//#import "BDHelper.h"
+//#import "PayHelper.h"
+//#import "PayWithAliResultHelper.h"
+#import "IncomeColumnExcellView.h"
+#import "BaseViewHelper.h"
+#import "IdentifyButton.h"
+
+
+#import "BaseViewController.h"
+#import "BaseNaviViewController.h"
+#import "TabBarViewController.h"
+#import "BaseTableviewDelegate.h"
+#import "BaseCell.h"
+
+#import "LoginVC.h"
+#import "LoginModefyPasswordVC.h"
+#import "MineVC.h"
+
+
+
+#define MachineStatusNotOutStr              @"未出库"
+#define MachineStatusOutStr                 @"已出库"
+#define MachineStatusTogetherStr            @"已绑定"
+#define MachineStatusActivityStr            @"已激活"
+#define MachineStatusGiveMmoneyStr          @"已返现"
+#define MachineStatusNotGiveMmoneyStr       @"不返现"
+#define MachineStatusBrokenStr              @"已作废"
+#define MachineStatusNotTogatheringStr      @"解绑中"
+
+
+
+#pragma mark ------网络定义---------
+#define MyKeychain_server   @"MyKeychain_server"
+
+//#define InternetYuMing      @"http://test.ruizhongmeng.com/"
+#define InternetYuMing      @"http://www.ruizhongmeng.com/"
+
+#define Message             @"home/Register/sendCode"    //短信
+
+#pragma mark ------颜色定义---------
+#define RGBA(r,g,b,a)               [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGBAref(r,g,b,a)            [UIColor colorWithRed:(0xr)/255.0f green:(0xg)/255.0f blue:(0xb)/255.0f alpha:a]
+
+#define APPThemeGray               RGBA(246,246,246,1)  //f6f6f6
+#define APPThemeBlue               RGBA(90,163,252,1)
+#define APPTextColor               RGBA(64,64,64,1)     //404040
+#define APPThemeGreen              RGBA(0x00,0xc4,0x0d,1)
+#define APPSubTextColor            RGBA(128,128,128,1)  //8b8b8b
+#define LineColor                  RGBA(235,235,235,1)  //ebebeb
+#define PlaceHolderColor           RGBA(202,202,202,1)
+#define TabbarTextColorNormal      RGBA(0xd6,0xd6,0xd6,1)
+
+#pragma mark ------表格颜色定义---------
+#define excelBackgroundColor       RGBA(255,255,255,1) //收益表格背景颜色
+#define excelMonthLineColor        RGBA(0xff, 0xaf, 0x2a, 1) //收益表格曲线颜色
+#define excelDayLineColor          RGBA(0xff, 0x6f, 0x1a, 1) //收益表格曲线颜色
+#define excelXYColor               RGBA(0xd2,0xd0,0xce,1) //收益表格XY轴颜色
+#define excelMonthFillColor        RGBA(0xff,0xfb,0xb3,0.5) //收益表格填充色
+#define excelDayFillColor          RGBA(0xff, 0xf1, 0xf1, 1) //收益表格填充色
+#define excelHeight                kWidth(340)
+
+#pragma mark ------动态大小---------
+//这里375 以6s的宽度做标准
+#define kWidth(R)               (R)*(SCREEN_WIDTH/375)
+#define kHeight(R)              (R)*(SCREEN_HEIGHT/667)
+#define font(R)                 (R)*(SCREEN_WIDTH/375.0)
+#define kFONT(R)                [UIFont systemFontOfSize:font(R)]
+#define KBFONT(R)               [UIFont boldSystemFontOfSize:(R)]
+#define iosVerdion(R)           @available(iOS (R), *)
+
+#pragma mark ------银行卡设置---------
+#define CardCount               4
+
+#pragma mark ------输入框属性设置---------
+#define TextFieldLength         30
+
+#pragma mark ------计时器---------
+#define TimeTotalCount          60
+
+#pragma mark ------分割线属性---------
+#define LineHight               0.5
+
+#pragma mark ------商品设置---------
+#define MachineMinCount         5  //最低购买数量
+#define MachineMaxCount         9999//最高购买数量
+
+#pragma mark ------机具号码数据长度定义---------
+#define MachineNumberMintLength         15
+
+#pragma mark ------弱引用---------
+#if __has_feature(objc_arc)
+#define IMP_BLOCK_SELF(type) __weak type *block_self=self;
+#else
+#define IMP_BLOCK_SELF(type) __block type *block_self=self;
+#endif
+
+#pragma mark ------其他---------
+#define theWindow                       [[UIApplication sharedApplication] delegate].window
+
+#endif /* PrefixHeader_pch */
