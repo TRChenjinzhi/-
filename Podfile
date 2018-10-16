@@ -18,8 +18,7 @@ target 'FenRun' do
   pod 'MJRefresh'
   pod 'ActionSheetPicker-3.0'
   pod 'LBXScan'
-
-
+  
   target 'FenRunTests' do
     inherit! :search_paths
     # Pods for testing

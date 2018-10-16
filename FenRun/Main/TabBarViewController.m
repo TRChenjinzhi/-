@@ -52,7 +52,7 @@
         @"normalImg":@"menu_home_nor",
         @"selectImg":@"menu_home_dwn",
         @"itemTitle":@"首页"},
-      @{@"vc":[[BaseNaviViewController alloc] initWithRootViewController:[UIViewController new]],
+      @{@"vc":[[BaseNaviViewController alloc] initWithRootViewController:[DataVC new]],
         @"normalImg":@"menu_income_nor",
         @"selectImg":@"menu_income_dwn",
         @"itemTitle":@"数据"},

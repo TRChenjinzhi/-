@@ -1,6 +1,6 @@
 //
 //  PrefixHeader.pch
-//  FenRun
+//  乐速益
 //
 //  Created by chenjinzhi on 2018/9/26.
 //  Copyright © 2018 chenjinzhi. All rights reserved.
@@ -27,12 +27,28 @@ typedef enum : NSInteger {
     CameraPhotos        //相册
 } CameraType;
 
+typedef enum : NSInteger {
+    sucess = 0,     //成功
+    failed,         //失败
+    Doing           //代处理
+} MineWordOrderStateType;
+
+typedef enum : NSInteger {
+    POS = 0,        //调单大POS
+    Hander,         //调单手刷
+    BlackMenu       //黑名单解冻
+} MineWordOrderActionType;
+
+typedef enum : NSInteger {
+    CardAdd = 0,    //添加银行卡
+    CardEdit        //修改银行卡
+} CardAddOrEditType;
+
 
 #import <Masonry.h>
 #import <SDCycleScrollView.h>
 #import <AFNetworking.h>
 #import <AxcAE_TabBar.h>
-//#import "LMJScrollTextView2.h"
 #import <YYKit.h>
 #import <MJRefresh.h>
 #import <MessageUI/MessageUI.h>
@@ -79,7 +95,6 @@ typedef enum : NSInteger {
 #import "BaseViewHelper.h"
 #import "IdentifyButton.h"
 
-
 #import "BaseViewController.h"
 #import "BaseNaviViewController.h"
 #import "TabBarViewController.h"
@@ -89,7 +104,7 @@ typedef enum : NSInteger {
 #import "LoginVC.h"
 #import "LoginModefyPasswordVC.h"
 #import "MineVC.h"
-
+#import "DataVC.h"
 
 
 #define MachineStatusNotOutStr              @"未出库"

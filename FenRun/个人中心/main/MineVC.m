@@ -1,6 +1,6 @@
 //
 //  MineVC.m
-//  FenRun
+//  乐速益
 //
 //  Created by chenjinzhi on 2018/10/11.
 //  Copyright © 2018 chenjinzhi. All rights reserved.
@@ -9,6 +9,12 @@
 #import "MineVC.h"
 #import "MineTableviewDelegate.h"
 #import "MineDetailInfoVC.h"
+#import "MineWorkOrderVC.h"
+#import "MineContactVC.h"
+#import "LoginModefyPasswordVC.h"
+#import "MineCardControlViewController.h"
+#import "MineSuggestViewController.h"
+#import "MineAboutMeViewController.h"
 
 @interface MineVC ()
 
@@ -153,7 +159,8 @@
         case 0:
         {
             if(section == 0){
-                
+                MineCardControlViewController* vc   = [MineCardControlViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             else{
                 
@@ -163,20 +170,24 @@
         case 1:
         {
             if(section == 0){
-                
+                MineWorkOrderVC* vc = [MineWorkOrderVC new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             else{
-                
+                MIneContactVC* vc   = [MIneContactVC new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             break;
         }
         case 2:
         {
             if(section == 0){
-                
+                LoginModefyPasswordVC* vc   = [LoginModefyPasswordVC new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             else{
-                
+                MineSuggestViewController* vc   = [MineSuggestViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             break;
         }
@@ -186,7 +197,8 @@
                 
             }
             else{
-                
+                MineAboutMeViewController* vc   = [MineAboutMeViewController new];
+                [self.navigationController pushViewController:vc animated:YES];
             }
             break;
         }

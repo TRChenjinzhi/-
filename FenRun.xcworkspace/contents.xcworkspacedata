@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/chenjinzhi/Desktop/GitHub/&#x4e50;&#x901f;&#x76ca;/&#x4e50;&#x901f;&#x76ca;.xcodeproj">
+      location = "group:FenRun.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

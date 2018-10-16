@@ -1,6 +1,6 @@
 //
 //  BaseViewHelper.m
-//  FenRun
+//  乐速益
 //
 //  Created by chenjinzhi on 2018/10/11.
 //  Copyright © 2018 chenjinzhi. All rights reserved.
@@ -27,6 +27,15 @@
         // Fallback on earlier versions
     }
     return tableView;
+}
+
++(UIScrollView *)getBaseScrollview{
+    UIScrollView* scrollview    = [[UIScrollView alloc] initWithFrame:CGRectZero];
+    scrollview.showsVerticalScrollIndicator     = NO;
+    scrollview.showsHorizontalScrollIndicator   = NO;
+    scrollview.bounces                          = NO;
+    
+    return scrollview;
 }
 
 @end

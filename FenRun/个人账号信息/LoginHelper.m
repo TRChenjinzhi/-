@@ -12,11 +12,11 @@
 
 static id _instance;
 
-+ (instancetype)share
++(instancetype)share
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[self alloc] init];
+        _instance = [[LoginHelper alloc] init];
     });
     return _instance;
 }
@@ -44,6 +44,7 @@ static id _instance;
 
 +(BOOL)getUserInfo{
     NSDictionary* info  = [AppConfig getUserInfo];
+    if(info == nil) return NO;
     [LoginHelper setInstance:[LoginHelper mj_objectWithKeyValues:info]];
     if([LoginHelper share].user_phone.length <= 0){
         return NO;

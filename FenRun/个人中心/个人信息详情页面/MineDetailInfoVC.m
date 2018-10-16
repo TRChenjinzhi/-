@@ -70,12 +70,27 @@
     IMP_BLOCK_SELF(MineDetailInfoVC)
     [icon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithActionBlock:^(id  _Nonnull sender) {
         NSLog(@"选择照片");
-        [CameraHelper sharedInstance].vc    = block_self;
-        [CameraHelper sharedInstance].type  = CameraPhotos;
-        [CameraHelper sharedInstance].didfinishedBlock = ^(UIImage *image) {
+        [MyWindow showSheetWindownByTitle:@"请选择" andBottonTitleArray:@[@"相机",@"相册"] andSuper:block_self Sucess:^(NSString *title) {
+            if([title isEqualToString:@"相册"]){
+                [CameraHelper sharedInstance].vc    = block_self;
+                [CameraHelper sharedInstance].type  = CameraPhotos;
+                [CameraHelper sharedInstance].didfinishedBlock = ^(UIImage *image) {
+                    NSLog(@"照片选取完毕");
+                };
+                [[CameraHelper sharedInstance] getImageFromCamera];
+            }
+            else if([title isEqualToString:@"相机"]){
+                [CameraHelper sharedInstance].vc    = block_self;
+                [CameraHelper sharedInstance].type  = CameraMine;
+                [CameraHelper sharedInstance].didfinishedBlock = ^(UIImage *image) {
+                    NSLog(@"牌照选取完毕");
+                };
+                [[CameraHelper sharedInstance] getImageFromCamera];
+            }
+        } AndFailed:^{
             
-        };
-        [[CameraHelper sharedInstance] getImageFromCamera];
+        }];
+        
     }] ];
     
     UILabel* nameLB     = [LabelHelper CreateLabelByText:[LoginHelper share].user_name AndFont:kFONT(14) AndTextColor:APPTextColor AndTextAligemt:NSTextAlignmentRight];

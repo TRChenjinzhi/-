@@ -91,6 +91,8 @@ static id _instance;
             if(self.didfinishedBlock){
                 self.didfinishedBlock(original);
             }
+            
+            [self.vc dismissViewControllerAnimated:YES completion:nil];
         }
         
 //        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
@@ -113,7 +115,6 @@ static id _instance;
 //        [self dismissViewControllerAnimated:YES completion:nil];
     }
     
-    [self.vc dismissViewControllerAnimated:YES completion:nil];
 }
 
 //进入拍摄页面点击取消按钮
